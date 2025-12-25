@@ -1,0 +1,91 @@
+/* Reset Dasar Mobile */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at center, #0a1931 0%, #000 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    color: white;
+    perspective: 1000px;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: opacity 0.5s ease;
+}
+
+.hidden { display: none; opacity: 0; }
+
+/* --- Gaya Hadiah --- */
+.gift-box {
+    width: 100px; height: 90px;
+    background: #c0392b; margin: 0 auto 20px;
+    position: relative; border-radius: 5px;
+    animation: giftShake 1.5s infinite;
+}
+.gift-lid {
+    width: 110px; height: 20px; background: #e74c3c;
+    position: absolute; top: -15px; left: -5px;
+    border-radius: 3px; box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+#open-btn {
+    padding: 16px 32px; font-size: 1.1rem; font-weight: bold;
+    background: #f1c40f; color: #1a1a1a; border: none;
+    border-radius: 50px; cursor: pointer;
+}
+
+/* --- Pohon 3D --- */
+.merry-title {
+    text-align: center; font-size: 2.5rem; line-height: 1.1;
+    margin-bottom: 30px; text-shadow: 0 0 15px #f1c40f;
+}
+.scene {
+    width: 200px; height: 300px;
+    transform-style: preserve-3d;
+    animation: rotateTree 10s infinite linear;
+}
+.tree-3d { position: absolute; bottom: 50px; left: 50%; transform-style: preserve-3d; }
+.tree-layer {
+    position: absolute; bottom: 0; left: -75px;
+    width: 0; height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 140px solid #1b4d3e;
+    transform-origin: 50% 100%;
+}
+.star {
+    position: absolute; top: -210px; left: -22px;
+    font-size: 45px; color: #f1c40f; text-shadow: 0 0 20px #f1c40f;
+}
+.trunk { position: absolute; bottom: -40px; left: -15px; width: 30px; height: 45px; background: #3e2723; }
+.light { position: absolute; width: 6px; height: 6px; border-radius: 50%; animation: blink 0.5s infinite alternate; }
+
+/* --- Jumpscare Overlay --- */
+.jumpscare-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: black; z-index: 9999; display: flex; justify-content: center; align-items: center;
+}
+.hidden-video { display: none !important; }
+#jumpscare-video { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- Animasi --- */
+@keyframes rotateTree { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@keyframes giftShake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+@keyframes blink { from { opacity: 0.3; } to { opacity: 1; } }
+.snowflake { position: absolute; top: -20px; color: white; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(110vh); } }

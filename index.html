@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Christmas Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="christmas-music" loop>
+        <source src="We Wish You a Merry Christmas.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="gift-screen" class="screen">
+        <div class="gift-container">
+            <div class="gift-box">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+            </div>
+            <h2 class="gift-text">Ketuk untuk membuka hadiahmu!</h2>
+            <button id="open-btn">BUKA HADIAH 🎁</button>
+        </div>
+    </div>
+
+    <div id="tree-screen" class="screen hidden">
+        <h1 class="merry-title">Merry<br>Christmas</h1>
+        
+        <div class="scene">
+            <div class="tree-3d">
+                <div class="star">★</div>
+                <div id="tree-layers"></div>
+                <div class="trunk"></div>
+            </div>
+        </div>
+        <div class="ground-snow"></div>
+    </div>
+
+    <div id="jumpscare-container" class="jumpscare-overlay hidden-video">
+        <video id="jumpscare-video" playsinline>
+            <source src="New Netflix original (jumpscare).mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
